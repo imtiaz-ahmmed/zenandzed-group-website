@@ -3888,7 +3888,7 @@ textarea {
 }
 .slider__content .title {
   margin-bottom: 15px;
-  font-size: 55px;
+  font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--tg-color-white-default);
@@ -7036,6 +7036,8 @@ section__title .slider__single.swiper-slide-active .slider__content p {
   display: flex;
   align-items: center;
   gap: 30px 50px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 @media (max-width: 1199.98px) {
   .choose__content-bottom {
