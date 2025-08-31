@@ -5265,6 +5265,9 @@ section__title .slider__single.swiper-slide-active .slider__content p {
 .section-py-120 {
   padding: 120px 0;
 }
+.section-py-70 {
+  padding: 70px 0;
+}
 @media (max-width: 767.98px) {
   .section-py-120 {
     padding: 100px 0;
@@ -6876,7 +6879,7 @@ section__title .slider__single.swiper-slide-active .slider__content p {
   content: "";
   position: absolute;
   width: 464px;
-  height: 464px;
+  height: 364px;
   left: -37px;
   bottom: 0;
   border-radius: 50%;
@@ -7036,8 +7039,8 @@ section__title .slider__single.swiper-slide-active .slider__content p {
   display: flex;
   align-items: center;
   gap: 30px 50px;
-  text-align: justify;
-  text-justify: inter-word;
+  /* text-align: justify;
+  text-justify: inter-word; */
 }
 @media (max-width: 1199.98px) {
   .choose__content-bottom {
@@ -7172,6 +7175,7 @@ section__title .slider__single.swiper-slide-active .slider__content p {
 .achieved__area {
   position: relative;
   z-index: 1;
+  background: #f3f9f8;
 }
 .achieved__content {
   padding: 140px 0;
@@ -11407,12 +11411,12 @@ blockquote > p {
 ===============================*/
 .contact-map {
   width: 100%;
-  height: 380px;
+  height: 580px;
 }
 .contact-map iframe {
   width: 100%;
   height: 100%;
-  mix-blend-mode: luminosity;
+  /* mix-blend-mode: luminosity; */
 }
 .contact-map-two {
   margin-bottom: 75px;
