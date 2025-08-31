@@ -49,7 +49,7 @@
   --tg-body-color: #666666;
   --tg-heading-color: #000038;
   --tg-theme-primary: #a11e22;
-  --tg-theme-primary-two: #d70006;
+  --tg-theme-primary-two: #a11e22;
   --tg-theme-secondary: #29abe2;
   --tg-color-dark-blue: #0e104b;
   --tg-color-dark-blue-two: #001b31;
@@ -270,7 +270,7 @@ body.theme-blue {
 }
 
 body.theme-red {
-  --tg-theme-primary: #d70006;
+  --tg-theme-primary: #a11e22;
 }
 
 body.theme-red {
@@ -282,7 +282,7 @@ body.theme-red {
 }
 
 body.theme-orange {
-  --tg-theme-primary: #f94627;
+  --tg-theme-primary: #a11e22;
 }
 
 body.theme-orange {
@@ -625,7 +625,7 @@ textarea {
   background: var(--tg-theme-primary);
 }
 .btn.red-btn:hover {
-  background: var(--tg-color-black-2);
+  background: var(--tg-theme-secondary);
 }
 
 .border-btn {
@@ -7241,7 +7241,7 @@ section__title .slider__single.swiper-slide-active .slider__content p {
   height: 8px;
 }
 .progress__item .progress .progress-bar {
-  background-color: var(--tg-theme-secondary);
+  background-color: var(--tg-theme-primary);
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   -o-border-radius: 100px;
@@ -7284,6 +7284,36 @@ section__title .slider__single.swiper-slide-active .slider__content p {
   font-size: 16px;
   font-weight: 700;
   color: var(--tg-heading-color);
+}
+.contact__info-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact__info-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+.custom-btn {
+  background-color: #a11e22;
+  border: 2px solid #a11e22;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #29abe2;
+  color: #fff;
+}
+
+.custom-btn:hover img {
+  filter: brightness(0) invert(1); /* makes icon white on hover */
 }
 
 /*=============================
@@ -9929,7 +9959,8 @@ section__title .slider__single.swiper-slide-active .slider__content p {
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  background: var(--tg-color-white-default);
+  /* background: var(--tg-color-white-default); */
+  background: #a11e22;
   color: var(--tg-heading-color);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
