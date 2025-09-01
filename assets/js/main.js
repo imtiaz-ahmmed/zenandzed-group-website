@@ -440,3 +440,12 @@
     });
   }
 })(jQuery);
+
+const startYear = 1982;
+
+const currentYear = new Date().getFullYear();
+
+const experienceYears = currentYear - startYear;
+
+document.getElementById("experience-years").textContent = experienceYears;
+document.getElementById("about-years").textContent = experienceYears;
