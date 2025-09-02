@@ -2814,7 +2814,8 @@ textarea {
   align-items: center;
 }
 .tgmenu__wrap .logo img {
-  max-height: 65px;
+  max-height: 55px;
+  width: 270px;
 }
 .tgmenu__nav {
   display: -webkit-box;
@@ -4574,6 +4575,7 @@ section__title .slider__single.swiper-slide-active .slider__content p {
   margin-bottom: 30px;
   font-size: 18px;
   line-height: 1.55;
+  text-align: justify;
 }
 .about__content-four .about__list-box-four {
   width: 100%;
@@ -5894,7 +5896,7 @@ section__title .slider__single.swiper-slide-active .slider__content p {
 }
 .services__content .title {
   margin-bottom: 15px;
-  font-size: 22px;
+  font-size: 20px;
 }
 .services__content p {
   margin-bottom: 0;
