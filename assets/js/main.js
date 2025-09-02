@@ -449,3 +449,72 @@ const experienceYears = currentYear - startYear;
 
 document.getElementById("experience-years").textContent = experienceYears;
 document.getElementById("about-years").textContent = experienceYears;
+
+document.addEventListener("DOMContentLoaded", function () {
+  const servicesData = {
+    ocean: {
+      title: "Ocean Freight",
+      image: "assets/img/services/services_img01.jpg",
+      description:
+        "Shipping freight refers to transporting large quantities of goods by sea. We handle booking, logistics, customs, and delivery.",
+      extra: `
+        <div class="services__details-content-inner">
+          <h2 class="title-two">Global Shipping Excellence</h2>
+          <p>We provide full-container and less-than-container load shipping across all major ports worldwide.</p>
+        </div>
+      `,
+    },
+    air: {
+      title: "Air Freight",
+      image: "assets/img/services/services_img03.jpg",
+      description:
+        "Fast and reliable air freight with global coverage. Perfect for urgent or high-value cargo.",
+      extra: `
+        <div class="services__details-content-inner">
+          <h2 class="title-two">Priority & Express Cargo</h2>
+          <p>Offering secure and fast delivery by air, including express handling and priority routes.</p>
+        </div>
+      `,
+    },
+    multi: {
+      title: "Multi Modal / Inter Modal",
+      image: "assets/img/services/services_img02.jpg",
+      description:
+        "Integrated transport solutions using rail, road, sea, and air for maximum efficiency.",
+      extra: `<p>Our multimodal solutions ensure optimized costs and seamless transitions across transport modes.</p>`,
+    },
+    customs: {
+      title: "Customs Clearance",
+      image: "assets/img/services/services_img06.jpg",
+      description:
+        "Efficient customs clearance services that simplify cross-border logistics.",
+      extra: `<p>We handle import/export compliance, paperwork, and customs duties with precision.</p>`,
+    },
+    warehouse: {
+      title: "Warehouse",
+      image: "assets/img/services/services_img04.jpg",
+      description:
+        "Modern storage facilities with climate control, inventory tracking, and security.",
+      extra: `<p>Our warehouses support just-in-time delivery and supply chain optimization.</p>`,
+    },
+    project: {
+      title: "Project Cargo",
+      image: "assets/img/services/services_img05.jpg",
+      description:
+        "Specialized handling for oversized, heavy, and complex cargo.",
+      extra: `<p>From planning to execution, we manage heavy-lift and out-of-gauge shipments worldwide.</p>`,
+    },
+  };
+
+  // Get selected service from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const serviceKey = urlParams.get("service") || "ocean"; // default ocean
+  const service = servicesData[serviceKey];
+
+  // Inject into DOM
+  document.getElementById("service-title").textContent = service.title;
+  document.getElementById("service-image").src = service.image;
+  document.getElementById("service-description").textContent =
+    service.description;
+  document.getElementById("service-extra").innerHTML = service.extra;
+});

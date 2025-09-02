@@ -7308,8 +7308,31 @@ section__title .slider__single.swiper-slide-active .slider__content p {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.custom-btn2 {
+  background-color: #a11e22;
+  border: 2px solid #a11e22;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
 
 .custom-btn:hover {
+  background-color: #29abe2;
+  color: #fff;
+}
+
+.custom-btn2:hover img {
+  filter: brightness(0) invert(1); /* makes icon white on hover */
+}
+.custom-btn2:hover {
   background-color: #29abe2;
   color: #fff;
 }
