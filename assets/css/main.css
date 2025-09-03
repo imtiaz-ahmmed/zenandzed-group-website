@@ -370,6 +370,7 @@ textarea {
     --bs-gutter-x: 20px;
   }
 }
+/* highlight active service in sidebar */
 
 .container {
   max-width: 1250px;
@@ -6490,7 +6491,15 @@ section__title .slider__single.swiper-slide-active .slider__content p {
 .services__cat-list .list-wrap li a:hover i {
   color: var(--tg-color-white-default);
 }
+/* active (current service) */
+.services__cat-list .list-wrap li a.is-active {
+  background: #29abe2; /* or use var(--tg-theme-primary) if you want */
+  color: #fff;
+}
 
+.services__cat-list .list-wrap li a.is-active i {
+  color: #fff;
+}
 @media (max-width: 991.98px) {
   .mb-md-30 {
     margin-bottom: 30px;
@@ -10923,8 +10932,8 @@ section__title .slider__single.swiper-slide-active .slider__content p {
 
 blockquote {
   background: var(--tg-color-gray-12);
-  margin: 40px 50px;
-  padding: 35px 120px 35px 45px;
+  margin: 40px 70px;
+  padding: 35px 40px 35px 45px;
   position: relative;
   z-index: 1;
 }

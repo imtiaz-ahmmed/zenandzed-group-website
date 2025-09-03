@@ -477,44 +477,105 @@ document.addEventListener("DOMContentLoaded", function () {
       `,
     },
     multi: {
-      title: "Multi Modal / Inter Modal",
-      image: "assets/img/services/services_img02.jpg",
+      title: "Multimodal / Intermodal",
+      image: "assets/img/services/Multimodal.jpg", // use the correct filename you have
       description:
         "Integrated transport solutions using rail, road, sea, and air for maximum efficiency.",
       extra: `<p>Our multimodal solutions ensure optimized costs and seamless transitions across transport modes.</p>`,
     },
     customs: {
       title: "Customs Clearance",
-      image: "assets/img/services/services_img06.jpg",
+      image: "assets/img/services/customs-clearance.jpg",
       description:
         "Efficient customs clearance services that simplify cross-border logistics.",
       extra: `<p>We handle import/export compliance, paperwork, and customs duties with precision.</p>`,
     },
     warehouse: {
       title: "Warehouse",
-      image: "assets/img/services/services_img04.jpg",
+      image: "assets/img/services/Warehouse.jpg",
       description:
         "Modern storage facilities with climate control, inventory tracking, and security.",
       extra: `<p>Our warehouses support just-in-time delivery and supply chain optimization.</p>`,
     },
     project: {
       title: "Project Cargo",
-      image: "assets/img/services/services_img05.jpg",
+      image: "assets/img/services/Project-cargo-(2).jpg",
       description:
         "Specialized handling for oversized, heavy, and complex cargo.",
       extra: `<p>From planning to execution, we manage heavy-lift and out-of-gauge shipments worldwide.</p>`,
     },
   };
 
-  // Get selected service from URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const serviceKey = urlParams.get("service") || "ocean"; // default ocean
-  const service = servicesData[serviceKey];
+  // Helper - get serviceKey from URL (fallback to ocean)
+  function getServiceFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const s = urlParams.get("service");
+    return s && s.trim().toLowerCase() in servicesData
+      ? s.trim().toLowerCase()
+      : "ocean";
+  }
 
-  // Inject into DOM
-  document.getElementById("service-title").textContent = service.title;
-  document.getElementById("service-image").src = service.image;
-  document.getElementById("service-description").textContent =
-    service.description;
-  document.getElementById("service-extra").innerHTML = service.extra;
+  // DOM refs
+  const titleEl = document.getElementById("service-title");
+  const imageEl = document.getElementById("service-image");
+  const descEl = document.getElementById("service-description");
+  const extraEl = document.getElementById("service-extra");
+  const sidebarLinks = document.querySelectorAll(
+    ".services__cat-list a[data-service]"
+  );
+
+  // Apply active class to sidebar
+  function setActiveSidebar(serviceKey) {
+    sidebarLinks.forEach((a) => {
+      const key = a.dataset.service;
+      if (key === serviceKey) {
+        a.classList.add("active");
+        a.setAttribute("aria-current", "true");
+      } else {
+        a.classList.remove("active");
+        a.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  // Load and render a service (optionally push history)
+  function loadService(serviceKey, pushHistory = false) {
+    const s = servicesData[serviceKey] || servicesData["ocean"];
+    if (titleEl) titleEl.textContent = s.title;
+    if (imageEl) imageEl.src = s.image;
+    if (descEl) descEl.textContent = s.description;
+    if (extraEl) extraEl.innerHTML = s.extra || "";
+
+    setActiveSidebar(serviceKey);
+
+    if (pushHistory) {
+      const newUrl = `${location.pathname}?service=${serviceKey}`;
+      history.pushState({ service: serviceKey }, s.title, newUrl);
+    }
+  }
+
+  // Sidebar click (single delegated handler)
+  const sidebarContainer = document.querySelector(".services__cat-list");
+  if (sidebarContainer) {
+    sidebarContainer.addEventListener("click", function (ev) {
+      const a = ev.target.closest("a[data-service]");
+      if (!a) return; // clicked outside link
+      ev.preventDefault();
+      const key = a.dataset.service;
+      loadService(key, true);
+      // optional: scroll to top of main content
+      const main = document.getElementById("service-main");
+      if (main) main.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  // Handle browser back/forward
+  window.addEventListener("popstate", function (ev) {
+    const key = getServiceFromUrl();
+    loadService(key, false);
+  });
+
+  // Initial load
+  const initialServiceKey = getServiceFromUrl();
+  loadService(initialServiceKey, false);
 });
