@@ -96,7 +96,7 @@
                     <li class="menu-item-has-children">
                       <a href="#">Company</a>
                       <ul class="sub-menu">
-                        <li><a href="blog.html">About Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="blog-details.html">Overview</a></li>
                       </ul>
                     </li>
@@ -1641,9 +1641,9 @@
             <div class="col-md-7">
               <div class="copyright-text">
                 <p>
-                  Copyright
-                  <a href="index.html">©Maritime Services Limited</a> | All
-                  Right Reserved
+                  Copyright © <span id="year"></span>
+                  <a href="index.html">Maritime Services Limited</a> | All Right
+                  Reserved
                 </p>
               </div>
             </div>
@@ -1716,6 +1716,9 @@
     <script src="assets/js/main.js"></script>
     <script>
       SVGInject(document.querySelectorAll("img.injectable"));
+    </script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
